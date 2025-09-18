@@ -547,3 +547,75 @@ window.API = {
     loadCategoriesForFilter,
     filterArticlesByCategory
 };
+
+// Función para el menú hamburguesa
+function initMobileMenu() {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.navbar ul');
+    
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+        
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.navbar a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+        
+        // Cerrar menú al hacer clic fuera
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.navbar') && !event.target.closest('.hamburger')) {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+    }
+}
+
+// Inicialización con manejo de errores
+document.addEventListener('DOMContentLoaded', function() {
+    try {
+        initMobileMenu();
+        
+        // Añadir estilos para transiciones suaves
+        const style = document.createElement('style');
+        style.textContent = `
+            .fade-in {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.6s ease, transform 0.6s ease;
+            }
+            .fade-in.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            /* Animación hamburguesa */
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Hacer visible los elementos con fade-in
+        setTimeout(() => {
+            document.querySelectorAll('.fade-in').forEach(element => {
+                element.classList.add('visible');
+            });
+        }, 100);
+        
+    } catch (error) {
+        console.error('Error in initialization:', error);
+    }
+});

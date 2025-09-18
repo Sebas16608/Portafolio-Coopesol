@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artículos por Categoría - Portafolio Banco</title>
+    <title>Coopesol RL</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Estilos personalizados -->
@@ -11,25 +11,32 @@
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <h1><a href="index.html"><img src="../media/03 logotipo coopesol.png" alt="logo coopesol" height="50"></a></h1>
-            </div>
-            <nav class="navbar">
-                <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="detalle-articulo.html?id=4"">Conocenos</a></li>
-                    <li><a href="categorias.html">Categorías</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html"><img src="../media/03 logotipo coopesol.png" alt="logo coopesol" height="70"></a>
+      </div>
+      <nav class="navbar">
+        <button class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul>
+          <li><a href="index.html" class="active">Inicio</a></li>
+          <li><a href="detalle-articulo.html?id=4">Conócenos</a></li>
+          <li><a href="categorias-detalle.html?id=5">Ahorros</a></li>
+          <li><a href="categorias-detalle.html?id=6">Créditos</a></li>
+          <li><a href="categorias.html">Servicios</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
     <!-- Page Header -->
     <section class="page-header py-4">
         <div class="container">
-            <h1 class="text-center" id="category-title">Categoría</h1>
+            <h1 class="text-center" id="category-title"></h1>
             <p class="text-center mb-0" id="category-description"></p>
         </div>
     </section>
@@ -74,37 +81,144 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer py-4">
-        <div class="container">
-            <p class="text-center mb-0">&copy; 2023 Banco. Todos los derechos reservados.</p>
+<footer class="footer bg-dark text-light pt-5">
+    <div class="container">
+        <div class="row">
+            <!-- Sobre Nosotros -->
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="fw-bold mb-3">Sobre Nosotros</h5>
+                <p>
+                    Coopesol R.L. es una cooperativa dedicada a brindar soluciones financieras confiables y seguras a nuestros socios.
+                </p>
+                <p>
+                    <i class="bi bi-geo-alt-fill me-2"></i>Av. Principal #123, Ciudad, País
+                </p>
+                <p>
+                    <i class="bi bi-telephone-fill me-2"></i>+502 1234 5678
+                </p>
+                <p>
+                    <i class="bi bi-envelope-fill me-2"></i>contacto@coopesol.com
+                </p>
+            </div>
+
+            <!-- Servicios -->
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="fw-bold mb-3">Servicios</h5>
+                <ul class="list-unstyled">
+                    <li><a href="categorias-detalle.html?id=5" class="text-light text-decoration-none">Ahorros</a></li>
+                    <li><a href="categorias-detalle.html?id=6" class="text-light text-decoration-none">Créditos</a></li>
+                    <li><a href="categorias.html" class="text-light text-decoration-none">Otros servicios</a></li>
+                </ul>
+            </div>
+
+            <!-- Redes Sociales -->
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="fw-bold mb-3">Síguenos</h5>
+                <a href="https://www.facebook.com/" target="_blank" class="d-block text-light mb-2">
+                    <i class="bi bi-facebook me-2"></i>Facebook
+                </a>
+                <a href="https://wa.me/50212345678" target="_blank" class="d-block text-light mb-2">
+                    <i class="bi bi-whatsapp me-2"></i>WhatsApp
+                </a>
+            </div>
+
+            <!-- Contacto rápido -->
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="fw-bold mb-3">Contacto rápido</h5>
+                <p>Dejanos tu mensaje:</p>
+                <form>
+                    <div class="mb-2">
+                        <input type="text" class="form-control form-control-sm" placeholder="Nombre">
+                    </div>
+                    <div class="mb-2">
+                        <input type="email" class="form-control form-control-sm" placeholder="Correo">
+                    </div>
+                    <div class="mb-2">
+                        <textarea class="form-control form-control-sm" rows="2" placeholder="Mensaje"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-sm w-100">Enviar</button>
+                </form>
+            </div>
         </div>
-    </footer>
+
+        <hr class="border-light">
+
+        <div class="row">
+            <div class="col-12 text-center py-3">
+                <p class="mb-0">&copy; 2025 Coopesol RL. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- JavaScript personalizado -->
     <script src="../js/script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Obtener el ID de la categoría de la URL
-            const urlParams = new URLSearchParams(window.location.search);
-            const categoryId = urlParams.get('id');
-            
-            if (categoryId) {
-                loadCategoryDetail(categoryId);
-                loadArticlesByCategory(categoryId);
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoryId = urlParams.get('id');
+    
+    if (categoryId) {
+        // Llamamos desde el objeto API
+        API.loadCategoryDetail(categoryId);
+        API.loadArticlesByCategory(categoryId);
+    } else {
+        document.getElementById('category-title').textContent = 'Categoría no encontrada';
+        document.getElementById('articles-container').innerHTML = `
+            <div class="col-12 text-center">
+                <div class="alert alert-danger">
+                    <p>No se ha especificado una categoría válida.</p>
+                    <a href="categorias.html" class="btn btn-primary">Volver a categorías</a>
+                </div>
+            </div>
+        `;
+    }
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector("footer form");
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        // Capturar valores
+        const nombre = form.querySelector("input[type='text']").value.trim();
+        const email = form.querySelector("input[type='email']").value.trim();
+        const mensaje = form.querySelector("textarea").value.trim();
+
+        if (!nombre || !email || !mensaje) {
+            alert("Por favor, completa todos los campos.");
+            return;
+        }
+
+        try {
+            const response = await fetch("http://127.0.0.1:8000/mensaje/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ nombre, email, mensaje }),
+            });
+
+            if (response.ok) {
+                alert("✅ Mensaje enviado con éxito.");
+                form.reset();
             } else {
-                document.getElementById('category-title').textContent = 'Categoría no encontrada';
-                document.getElementById('articles-container').innerHTML = `
-                    <div class="col-12 text-center">
-                        <div class="alert alert-danger">
-                            <p>No se ha especificado una categoría válida.</p>
-                            <a href="categorias.html" class="btn btn-primary">Volver a categorías</a>
-                        </div>
-                    </div>
-                `;
+                const errorData = await response.json();
+                console.error(errorData);
+                alert("❌ Error al enviar el mensaje.");
             }
-        });
-    </script>
+        } catch (error) {
+            console.error(error);
+            alert("⚠️ No se pudo conectar con el servidor.");
+        }
+    });
+});
+</script>
+
 </body>
 </html>

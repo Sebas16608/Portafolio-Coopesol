@@ -44,7 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'portafolio.apps.PortafolioConfig',
     'rest_framework',
-    'corsheaders'
+    'mensaje',
+    'corsheaders',
+    'django_cleanup',
 ]
 
 # Configura CORS
